@@ -22,13 +22,13 @@ startTime          0;
 
 stopAt             endTime;
 
-endTime            100;
+endTime            100000;
 
 deltaT             1;
 
 writeControl       timeStep;
 
-writeInterval      100;
+writeInterval      1000;
 
 purgeWrite         0;
 
@@ -50,6 +50,16 @@ functions
 {
     #includeFunc func_avgInlet
     #includeFunc func_avgOutlet
+
+    residuals
+    {
+        type                solverInfo;
+        libs                ("libutilityFunctionObjects.so");
+        fields              (p h U);
+        writeResidualFields yes;
+        writeControl        timeStep;
+        writeInterval       1000;
+    }
 }
 
 // ************************************************************************* //

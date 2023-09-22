@@ -7,11 +7,8 @@ cd ${0%/*} || exit 1
 # Source running tools.
 . $WM_PROJECT_DIR/bin/tools/RunFunctions
 
-# Place to move logs.
-mkdir -p logs/
-
 # Clean-up before launching.
-rm -rf log.* postProcessing 100/
+rm -rf log.* postProcessing constant/polyMesh/
 
 # Generate mesh if required.
 if [ ! -d constant/polyMesh/ ]; then
@@ -25,10 +22,13 @@ if [ ! -d constant/polyMesh/ ]; then
     pyFoamChangeBoundaryType.py . wall  wall
     
     runApplication checkMesh
+    
+    mkdir -p logs/
     mv log.* logs/
+
+    tail -5 logs/log.checkMesh | head -2
 else
     echo "Mesh already there..."
-    tail -5 logs/log.checkMesh | head -2
 fi
 
 # Ensure a default thermophysical file is found.

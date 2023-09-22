@@ -24,7 +24,15 @@ solvers
         relTol          0.1;
     }
 
-    "(U|e|h|k|omega|epsilon)"
+    U
+    {
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance       1.0e-07;
+        relTol          0.1;
+    }
+
+    "(e|h|k|omega|epsilon)"
     {
         solver          smoothSolver;
         smoother        symGaussSeidel;
@@ -44,10 +52,10 @@ SIMPLE
 
     residualControl
     {
-        p                   1.0e-04;
-        U                   1.0e-04;
+        p                   1.0e-05;
+        U                   5.0e-03;
         "(e|h)"             1.0e-04;
-        "(k|omega|epsilon)" 1.0e-03;
+        "(k|omega|epsilon)" 1.0e-04;
     }
 }
 
@@ -59,12 +67,12 @@ relaxationFactors
     }
     equations
     {
-        U               0.7;
-        e               0.7;
-        h               0.7;
-        k               0.7;
-        omega           0.7;
-        epsilon         0.7;
+        U               0.9;
+        e               0.5;
+        h               0.5;
+        k               0.5;
+        omega           0.5;
+        epsilon         0.5;
     }
 }
 
