@@ -12,5 +12,5 @@ For water:
 
 For air:
 
-- [File 1:](constant/water/thermophysicalProperties-1) mixture setup with all properties held constant.
-- [File 2:](constant/water/thermophysicalProperties-2) mixture setup with all polynomial properties.
+- [File 1:](constant/air/thermophysicalProperties-1) mixture setup with all properties held constant.
+- [File 2:](constant/air/thermophysicalProperties-2) mixture setup with all polynomial properties.
